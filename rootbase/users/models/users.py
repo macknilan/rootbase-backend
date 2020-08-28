@@ -14,6 +14,7 @@ from rootbase.utils.models import ROotbaseModel
 
 class User(ROotbaseModel, AbstractUser):
     """User model.
+    
     Extend from Django's Abstract User, change the username field
     to email to make it unique.
     

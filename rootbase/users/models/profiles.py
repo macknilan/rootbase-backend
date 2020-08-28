@@ -9,8 +9,8 @@ from rootbase.utils.models import ROotbaseModel
 
 
 class Profile(ROotbaseModel):
-    """
-    Profile model.
+    """Profile model.
+    
     User profile data
     A profile holds a user's public data like biography, picture,
     """
