@@ -49,7 +49,7 @@ class User(ROotbaseModel, AbstractUser):
         default=True, help_text=_('Public profiles show all information about users.')
     )
 
-    is_verfied = models.BooleanField(
+    is_verified = models.BooleanField(
         _("verified"),
         default=False,
         help_text=_(

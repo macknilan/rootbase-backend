@@ -108,9 +108,13 @@ class UserSignUpSerializer(serializers.Serializer):
         verification_token = self.gen_verification_token(user)
         subject = 'Welcome @{}! Verify your account to start using App-In-Develop'.format(user.username)
         from_email = 'App-In-Develop <noreply@macks.com>'
+        # 'DIRS': ['/app/rootbase/templates']
         content = render_to_string(
             'emails/users/account_verification.html',
-            {'token': verification_token, 'user': user}
+            {
+                'token': verification_token,
+                'user': user
+            },
         )
         msg = EmailMultiAlternatives(subject, content, from_email, [user.email])
         msg.attach_alternative(content, "text/html")
@@ -141,14 +145,15 @@ class UserLoginSerializer(serializers.Serializer):
         """Check credentials."""
         user = authenticate(username=data['email'], password=data['password'])
         if not user:
-            raise serializers.ValidationError('Invalid credentials')
+            raise serializers.ValidationError('Invalid credentials (╥﹏╥)')
         if not user.is_verified:
-            raise serializers.ValidationError('Account is not active yet :(')
+            raise serializers.ValidationError('Account is not active yet ¯\_(ツ)_/¯ ')
         self.context['user'] = user
         return data
 
     def create(self, data):
         """Generate or retrieve new token."""
+        # import ipdb; ipdb.set_trace()
         token, created = Token.objects.get_or_create(user=self.context['user'])
         return self.context['user'], token.key
 
