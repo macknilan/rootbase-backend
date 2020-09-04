@@ -108,7 +108,6 @@ class UserSignUpSerializer(serializers.Serializer):
         verification_token = self.gen_verification_token(user)
         subject = 'Welcome @{}! Verify your account to start using App-In-Develop'.format(user.username)
         from_email = 'App-In-Develop <noreply@macks.com>'
-        # 'DIRS': ['/app/rootbase/templates']
         content = render_to_string(
             'emails/users/account_verification.html',
             {
@@ -168,11 +167,11 @@ class AccountVerificationSerializer(serializers.Serializer):
         try:
             payload = jwt.decode(data, settings.SECRET_KEY, algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
-            raise serializers.ValidationError('Verification link has expired.')
+            raise serializers.ValidationError('Verification link has expired.  (╯︵╰,)')
         except jwt.PyJWTError:
-            raise serializers.ValidationError('Invalid token')
+            raise serializers.ValidationError('Invalid token ة_ة')
         if payload['type'] != 'email_confirmation':
-            raise serializers.ValidationError('Invalid token')
+            raise serializers.ValidationError('Invalid token (✖╭╮✖)')
 
         self.context['payload'] = payload
         return data
