@@ -1,1 +1,1 @@
-from .permissions import IsAccountOwner
+from .permissions import *

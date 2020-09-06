@@ -18,30 +18,19 @@ from rest_framework.validators import UniqueValidator
 # from cride.users.models import User, Profile
 from rootbase.users.models import User, Profile
 
+# Serializer
+from rootbase.users.api.serializers.profiles import ProfileModelSerializer
+
 # Utilities
 import jwt
 from datetime import timedelta
 
 # User = get_user_model()
 
-
-# class UserSerializer(serializers.ModelSerializer):
-#     """User login serializer
-#     
-#     Handle the login request data
-#     """
-#     class Meta:
-#         model = User
-#         fields = ["username", "email", "name", "url"]
-# 
-#         extra_kwargs = {
-#             "url": {"view_name": "api:user-detail", "lookup_field": "username"}
-#         }
-
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-
 class UserModelSerializer(serializers.ModelSerializer):
     """User model serializer."""
+
+    profile = ProfileModelSerializer(read_only=True)
 
     class Meta:
         """Meta class."""
@@ -52,7 +41,8 @@ class UserModelSerializer(serializers.ModelSerializer):
             'first_name',
             'last_name',
             'email',
-            'phone_number'
+            'phone_number',
+            'profile'
         )
 
 
@@ -184,3 +174,17 @@ class AccountVerificationSerializer(serializers.Serializer):
         user.save()
 
 
+# class UserSerializer(serializers.ModelSerializer):
+#     """User login serializer
+#     
+#     Handle the login request data
+#     """
+#     class Meta:
+#         model = User
+#         fields = ["username", "email", "name", "url"]
+# 
+#         extra_kwargs = {
+#             "url": {"view_name": "api:user-detail", "lookup_field": "username"}
+#         }
+
+# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---

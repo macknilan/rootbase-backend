@@ -16,8 +16,9 @@ from rootbase.users.api.serializers.users import (
     AccountVerificationSerializer,
     UserLoginSerializer,
     UserModelSerializer,
-    UserSignUpSerializer
+    UserSignUpSerializer,
 )
+from rootbase.users.api.serializers.profiles import (ProfileModelSerializer)
 # Permissions
 from rest_framework.permissions import (
     AllowAny,
@@ -31,6 +32,7 @@ from rootbase.users.models.users import User
 # User = get_user_model()
 
 class UserViewSet(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
                     viewsets.GenericViewSet):
     """User view set.
 
@@ -51,7 +53,7 @@ class UserViewSet(mixins.RetrieveModelMixin,
         """
         if self.action in ['signup', 'login', 'verify']:
             permissions = [AllowAny]
-        elif self.action == 'retrieve':
+        elif self.action in ['retrieve', 'update', 'partial_update', 'profile']:
             permissions = [IsAuthenticated, IsAccountOwner]
         else:
             permissions = [IsAuthenticated]
@@ -86,6 +88,22 @@ class UserViewSet(mixins.RetrieveModelMixin,
         serializer.save()
         data = {'message': 'Pshhhkkkkkkrrrr​kakingkakingkakingtsh​chchchchchchchcch​*ding*ding*ding* Congratulation! u r verified in App-In-Develop'}
         return Response(data, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=['PUT', 'PATCH'])
+    def profile(self, request, *args, **kwargs):
+        """Update profile data."""
+        user = self.get_object()
+        profile = user.profile
+        partial = request.method == 'PATCH'
+        serializer = ProfileModelSerializer(
+            profile,
+            data=request.data,
+            partial=partial
+        )
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        data = UserModelSerializer(user).data
+        return Response(data)
 
     # def retrieve(self, request, *args, **kwargs):
     #     """Add extra data to the response.
