@@ -302,14 +302,15 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
     #    # "rest_framework_simplejwt.authentication.JWTAuthentication",
     #    # "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication",
+    #    # "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 10,
     # "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
 }
 
-# SIMPLE_JWT = {
-#     # A JWT will be valid for 1 hour
-#     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60)
-# }
+SIMPLE_JWT = {
+    # A JWT will be valid for 1 hour
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60)
+}

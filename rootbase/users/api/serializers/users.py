@@ -13,6 +13,7 @@ from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 from rest_framework.validators import UniqueValidator
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # Models
 # from cride.users.models import User, Profile
@@ -124,7 +125,7 @@ class UserSignUpSerializer(serializers.Serializer):
 class UserLoginSerializer(serializers.Serializer):
     """User login serializer.
     
-    Handle the login request data.
+    Handle the request login data.
     """
 
     email = serializers.EmailField()
@@ -143,8 +144,10 @@ class UserLoginSerializer(serializers.Serializer):
     def create(self, data):
         """Generate or retrieve new token."""
         # import ipdb; ipdb.set_trace()
-        token, created = Token.objects.get_or_create(user=self.context['user'])
-        return self.context['user'], token.key
+        # breakpoint()
+        # token, created = Token.objects.get_or_create(user=self.context['user'])
+        token = RefreshToken.for_user(user=self.context["user"])
+        return self.context['user'], token
 
 
 class AccountVerificationSerializer(serializers.Serializer):
@@ -186,5 +189,3 @@ class AccountVerificationSerializer(serializers.Serializer):
 #         extra_kwargs = {
 #             "url": {"view_name": "api:user-detail", "lookup_field": "username"}
 #         }
-
-# --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---

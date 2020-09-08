@@ -65,11 +65,13 @@ class UserViewSet(mixins.RetrieveModelMixin,
         serializer = UserLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user, token = serializer.save()
+        # breakpoint()
         data = {
             'user': UserModelSerializer(user).data,
-            'access_token': token
+            # 'access_token': token
+            "token": str(token.access_token),
         }
-        return Response(data, status=status.HTTP_201_CREATED)
+        return Response(data, status=status.HTTP_200_OK)
 
     @action(detail=False, methods=['POST'])
     def signup(self, request):
