@@ -14,6 +14,7 @@ if settings.DEBUG:
 else:
     router = SimpleRouter()
 
+# https://www.django-rest-framework.org/api-guide/routers/#custom-routers
 # router = DefaultRouter(trailing_slash=False)
 router.register("users", UserViewSet, basename="users")
 
