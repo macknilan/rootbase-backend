@@ -3,7 +3,7 @@
 Proyecto API que sirve de base con la administración de usuarios para diferentes tipos de proyectos realizado con   
 :link: :octocat: [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
 
-La documentación :notebook: del API esta realizada con ![POSTMAN](https://github.com/postmanlabs/postman-docs/blob/develop/src/images/favicon.png) :link: [Rootbase-backend documentation](https://documenter.getpostman.com/view/8810189/TVCh1Tmu) :notebook:
+La documentación :notebook: del API esta realizada con _Postman_ ![POSTMAN](https://github.com/postmanlabs/postman-docs/blob/develop/src/images/favicon.png "POSTMAN") :link: [Rootbase-backend documentation](https://documenter.getpostman.com/view/8810189/TVCh1Tmu) :notebook:
 
 ![https://github.com/pydanny/cookiecutter-django/](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg "Built with Cookiecutter Django")
 ![https://github.com/ambv/black](https://img.shields.io/badge/code%20style-black-000000.svg "Black code style")
