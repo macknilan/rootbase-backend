@@ -1,6 +1,6 @@
 # Rootbase-backend
 
-Proyecto API que sirve de base con la administración de usuarios para diferentes tipos de proyectos realizado con :octocad: :link: ![cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
+Proyecto API que sirve de base con la administración de usuarios para diferentes tipos de proyectos realizado con :link: :octocat: ![cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
 
 La documentación del API esta realizada con ![POSTMAN](https://github.com/postmanlabs/postman-docs/blob/develop/src/images/favicon.png)
 
@@ -12,7 +12,7 @@ La documentación del API esta realizada con ![POSTMAN](https://github.com/postm
 |   	License|   	MIT|
 |---	|---	|
 
-El objetivo de este proyecto es tener una API realizada con Django que sirva inicialmente para la administración de usuarios
+El objetivo de este proyecto es tener una API realizada con Django que sirva inicialmente para la administración de usuarios (CRUD) y posteriormente se impemente la logica del negocio, cualquiera que requiera administración de usuarios. 
 
 
 
