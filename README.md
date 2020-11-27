@@ -1,9 +1,9 @@
 # Rootbase-backend
 
-Proyecto API que sirve de base con la administración de usuarios para diferentes tipos de proyectos realizado con   
+API project that serves as the basis for user administration for different types of projects carried out with   
 :link: :octocat: [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
 
-La documentación :notebook: del API esta realizada con _Postman_ ![POSTMAN](https://github.com/postmanlabs/postman-docs/blob/develop/src/images/favicon.png "POSTMAN") :link: [Rootbase-backend :notebook:](https://documenter.getpostman.com/view/8810189/TVCh1Tmu)
+The documentation :notebook: of the API is made with _Postman_ ![POSTMAN](https://github.com/postmanlabs/postman-docs/blob/develop/src/images/favicon.png "POSTMAN") :link: [Rootbase-backend :notebook:](https://documenter.getpostman.com/view/8810189/TVCh1Tmu)
 
 ![https://github.com/pydanny/cookiecutter-django/](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg "Built with Cookiecutter Django")
 ![https://github.com/ambv/black](https://img.shields.io/badge/code%20style-black-000000.svg "Black code style")
@@ -11,8 +11,7 @@ La documentación :notebook: del API esta realizada con _Postman_ ![POSTMAN](htt
 |   	License|   	MIT|
 |---	|---	|
 
-El objetivo de este proyecto es tener una API con Django que sirva inicialmente para la administración de usuarios (CRUD) y posteriormente se impemente la logica del negocio,que requiera administración de usuarios.
-
+The objective of this project is to have an API with Django that initially serves for user administration (CRUD) and later the business logic is implemented, which requires user administration.
 
 ### :house: Cookiecutter Django Settings
 
@@ -82,7 +81,7 @@ See detailed [cookiecutter-django Docker documentation.](http://cookiecutter-dja
 ```bash
 ```
 
-#### Commands for Docker :whale2: to work with :link: :octocat: [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
+### Commands for Docker :whale2: to work with :link: :octocat: [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
 
 #### Basic Docker
 ```bash
